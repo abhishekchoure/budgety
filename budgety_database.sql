@@ -1,9 +1,5 @@
 
-create user abhishek with
-	superuser
-	createdb
-	createrole
-	password 'test123';
+alter user postgres rename to abhishek and password 'test123';
 	
 create database abhishek
 \c abhishek

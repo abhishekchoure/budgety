@@ -1,6 +1,13 @@
 
 create user abhishek with
+	superuser
+	createdb
+	createrole
 	password 'test123';
+	
+create database abhishek
+\c abhishek
+
 /*drop table expense_item cascade; 
 drop table income_item cascade; 
 drop table daily_budget_item cascade; 

@@ -1,5 +1,5 @@
 
-alter user postgres rename to abhishek and password 'test123';
+alter user postgres rename to abhishek;
 	
 create database abhishek
 \c abhishek

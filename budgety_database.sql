@@ -3,7 +3,7 @@ create user abhishek with
   superuser
   password 'test123';
   
-postgres createdb abhishek ;
+create database abhishek;
 \c abhishek
 
 /*drop table expense_item cascade; 

@@ -1,7 +1,5 @@
 
-alter user postgres rename to abhishek;
-	
-create database abhishek
+create database abhishek;
 \c abhishek
 
 /*drop table expense_item cascade; 

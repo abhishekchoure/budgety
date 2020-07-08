@@ -1,5 +1,9 @@
-
-create database abhishek;
+create user abhishek with
+  createdb
+  superuser
+  password 'test123';
+  
+postgres createdb --owner=abhishek abhishek ;
 \c abhishek
 
 /*drop table expense_item cascade; 

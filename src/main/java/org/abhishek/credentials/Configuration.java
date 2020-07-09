@@ -4,7 +4,7 @@ import java.sql.*;
 
 public final class Configuration {
 
-    private static final String  url = "jdbc:postgresql://localhost:5432/abhishek";
+    private static final String  url = "jdbc:postgresql://localhost:5432/budgety_database";
     private static final String  user = "abhishek";
     private static final String  password = "test123";
 

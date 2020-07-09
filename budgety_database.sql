@@ -1,10 +1,9 @@
 create user abhishek with
   createdb
-  superuser
   password 'test123';
   
-create database abhishek;
-\c abhishek
+create database budgety_database;
+\c budgety_database
 
 /*drop table expense_item cascade; 
 drop table income_item cascade; 

@@ -10,5 +10,5 @@
 ## Getting Started
 1. Clone this repository.
 2. Run **budgety_database.sql** file from your psql shell. It will create required databases. 
-3. From IntelliJ Idea IDE, **import the root folder(Budgety) as project**. Press **Ctrl + F9** to build the project.
+3. Open IntelliJ Idea IDE, **import the root folder(Budgety) as project**. Press **Ctrl + F9** to build the project.
 4. In your Navigation pane, open ./src/main/java/org/abhishek/app/Main.java and press **Shift + 10** to run.

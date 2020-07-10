@@ -1,6 +1,7 @@
 package org.abhishek.gui;
 
 import javax.swing.JFrame;
+import java.awt.*;
 
 public class GUI {
 

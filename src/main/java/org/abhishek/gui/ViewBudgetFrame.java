@@ -86,7 +86,7 @@ public class ViewBudgetFrame implements ActionListener,ItemListener{
             }
         };
 
-        big = new Font("Poppins" , Font.BOLD , 30);
+        big = new Font("Montserrat" , Font.BOLD , 30);
         medium = new Font("Poppins",Font.PLAIN , 25);
         small = new Font("Poppins" , Font.PLAIN , 18);
 

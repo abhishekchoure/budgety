@@ -28,7 +28,6 @@ public class Main {
             item.addYearlyBudgetItemToDatabase();
         }
 
-
         MonthlyBudgetItem months[] = {
                 new MonthlyBudgetItem(Month.JANUARY,0,0,0,0,2020),
                 new MonthlyBudgetItem(Month.FEBRUARY,0,0,0,0,2020),

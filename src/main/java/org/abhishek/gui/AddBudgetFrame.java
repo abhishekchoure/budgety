@@ -217,6 +217,9 @@ public class AddBudgetFrame implements ActionListener , ItemListener{
         }
         if(e.getSource() == doneButton){
             addBudgetFrame.dispose();
+            selectedDay=0;
+            selectedMonth = null;
+            selectedYear = 0;
         }
 
         if(e.getSource() == addIncomeButton) {

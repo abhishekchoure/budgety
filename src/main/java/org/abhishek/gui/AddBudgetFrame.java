@@ -351,6 +351,7 @@ public class AddBudgetFrame implements ActionListener , ItemListener{
             days[i] = Integer.valueOf(i+1).toString();
         }
         day = new JComboBox<String>(days);
+        day.setSelectedIndex(-1);
         day.setBounds(100,30,55,28);
         day.addItemListener(this);
         day.setFont(small);

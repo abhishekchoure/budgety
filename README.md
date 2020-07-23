@@ -1,6 +1,6 @@
 # Budgety 
 ### Budgety makes it easy for you to manage your budget just within few clicks!
-*This app is in development and may contain bugs! We are working towards its final release :)*.
+*This app is in development and may contain bugs! I am working towards its final release :)*.
 
 ## Pre-requisites
 1. Java JDK greater than 8.

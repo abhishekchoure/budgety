@@ -195,14 +195,14 @@ public class AddBudgetFrame implements ActionListener , ItemListener{
                         confirmDateButton.setText("Change Date");
                         selectAnItem.setEnabled(true);
                         viewYourBudget.setEnabled(true);
-                        selectAnItem.setSelectedIndex(0);
+                        selectAnItem.setSelectedIndex(-1);
                         createDate();
                         yearObject = new YearlyBudgetItem(selectedYear,0,0,0,0);
-                        yearObject.addYearlyBudgetItemToDatabase();
+                       // yearObject.addYearlyBudgetItemToDatabase();
                         monthObject = new MonthlyBudgetItem(selectedMonth,0,0,0,0,selectedYear);
-                        monthObject.addMonthlyBudgetItemToDatabase();
+                       // monthObject.addMonthlyBudgetItemToDatabase();
                         dayObject = new DailyBudgetItem(newDate,0,0,0,0,selectedMonth,selectedYear);
-                        dayObject.addDailyBudgetItemToDatabase();
+                        // dayObject.addDailyBudgetItemToDatabase();
                     }else {
                         JOptionPane.showMessageDialog(addBudgetFrame,"Date is invalid! Please check again","Invalid Date",JOptionPane.ERROR_MESSAGE);
                     }
@@ -227,6 +227,9 @@ public class AddBudgetFrame implements ActionListener , ItemListener{
 
         if(e.getSource() == addIncomeButton) {
             if(!incAmountField.getText().isEmpty() && !incSourceField.getText().isEmpty()) {
+                yearObject.addYearlyBudgetItemToDatabase();
+                monthObject.addMonthlyBudgetItemToDatabase();
+                dayObject.addDailyBudgetItemToDatabase();
                 createDate();
                 double incAmount = Double.parseDouble(incAmountField.getText());
                 String incSource = incSourceField.getText();
@@ -242,6 +245,9 @@ public class AddBudgetFrame implements ActionListener , ItemListener{
             }
         }else if(e.getSource() == addExpenseButton) {
             if(!expAmountField.getText().isEmpty() && !expSourceField.getText().isEmpty()) {
+                yearObject.addYearlyBudgetItemToDatabase();
+                monthObject.addMonthlyBudgetItemToDatabase();
+                dayObject.addDailyBudgetItemToDatabase();
                 createDate();
                 double expAmount = Double.parseDouble(expAmountField.getText());
                 String expSource = expSourceField.getText();
@@ -269,14 +275,16 @@ public class AddBudgetFrame implements ActionListener , ItemListener{
         }
 
         if(e.getSource() == selectAnItem) {
-            selectedItem = selectAnItem.getSelectedItem().toString();
-            if(selectedItem == "Income") {
-                hideExpenseItem();
-                showIncomeItem();
-            }
-            if(selectedItem == "Expense") {
-                hideIncomeItem();
-                showExpenseItem();
+            if(selectAnItem.getSelectedItem() != null) {
+                selectedItem = selectAnItem.getSelectedItem().toString();
+                if (selectedItem == "Income") {
+                    hideExpenseItem();
+                    showIncomeItem();
+                }
+                if (selectedItem == "Expense") {
+                    hideIncomeItem();
+                    showExpenseItem();
+                }
             }
         }
     }

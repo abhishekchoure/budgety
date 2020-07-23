@@ -46,7 +46,7 @@ public class IndexFrame implements ActionListener{
         //To Update the Tables which shows your Budget
         updateTables();
 
-        /* ------- Disable Cell Editing JTable -------------*/
+        /* ------- Disable Cell Editing in JTable -------------*/
         monthTableModel = new DefaultTableModel(monthlyData, monthlyCols) {
             private static final long serialVersionUID = 1L;
 
@@ -213,5 +213,4 @@ public class IndexFrame implements ActionListener{
             System.exit(0);
         }
     }
-
 }

@@ -28,7 +28,6 @@ public class DailyBudgetItem {
     private void setDailyIncome(double income) {
         this.TOTAL_DAILY_INCOME = income;
     }
-
     private void setDailyExpense(double expense) {
         this.TOTAL_DAILY_EXPENSE = expense;
     }

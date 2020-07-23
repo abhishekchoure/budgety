@@ -14,7 +14,6 @@ public final class Configuration {
     public static String getUser() {
         return user;
     }
-
     public static String getPassword() {
         return password;
     }

@@ -43,8 +43,10 @@ public class IndexFrame implements ActionListener{
         this.frame.setLayout(new BorderLayout(5,5));
         this.frame.setResizable(false);
 
+        //To Update the Tables which shows your Budget
         updateTables();
 
+        /* ------- Disable Cell Editing JTable -------------*/
         monthTableModel = new DefaultTableModel(monthlyData, monthlyCols) {
             private static final long serialVersionUID = 1L;
 
@@ -63,11 +65,16 @@ public class IndexFrame implements ActionListener{
             }
         };
 
+        /*----------------------------------------------------*/
+
+        /* ------ FONTS ----- */
         mainFont = new Font("Poppins",Font.BOLD,30);
         descriptionFont = new Font("Poppins",Font.PLAIN,18);
         buttonFont = new Font("Poppins",Font.PLAIN,20);
         tableFont = new Font("Poppins",Font.PLAIN,15);
+        /* ----------------- */
 
+        /* ---- HEADER SECTION ----*/
         headerPanel = new JPanel(new GridLayout(3,1));
         title = new JLabel("BUDGETY",JLabel.CENTER);
         title.setFont(mainFont);
@@ -79,7 +86,9 @@ public class IndexFrame implements ActionListener{
         headerPanel.add(description);
         headerPanel.add(getStarted);
         this.frame.add(headerPanel,BorderLayout.NORTH);
+        /* ----------------------- */
 
+        /* ----- DISPLAY ALL BUDGETS ----- */
         contentPanel = new JPanel(new FlowLayout(FlowLayout.CENTER,10,5));
         contentPanel.setBorder(BorderFactory.createEmptyBorder(20,20,20,10));
         month = new JLabel("Your Monthly Budget",JLabel.CENTER);
@@ -107,8 +116,9 @@ public class IndexFrame implements ActionListener{
         contentPanel.add(month);
         contentPanel.add(monthPane);
         this.frame.add(contentPanel,BorderLayout.CENTER);
+        /*----------------------------------------*/
 
-
+        /* --------- NAVIGATION BUTTONS ------------- */
         navigationPanel = new JPanel(new GridLayout(3,1));
         navigationPanel.setBorder(BorderFactory.createEmptyBorder(0,20,20,20));
         addBudget = new JButton("ADD A BUDGET");
@@ -130,16 +140,20 @@ public class IndexFrame implements ActionListener{
         viewBudget.addActionListener(this);
         refreshButton.addActionListener(this);
         closeButton.addActionListener(this);
+        /*----------------------------------------------*/
     }
 
+    //For JTable updating monthly data
     private void updateMonthlyData() {
         monthlyData = MonthlyBudgetItem.getDataFromMonthlyBudget(LocalDate.now().getYear());
     }
 
+    //For Jtable updating yearly data
     private void updateYearlyData() {
         yearlyData = YearlyBudgetItem.getDataFromYearlyBudget();
     }
 
+    //Resetting Data shown in the Jtables
     private void refreshTables() {
         DefaultTableModel monthModel = (DefaultTableModel)monthTable.getModel();
         monthModel.setRowCount(0);
@@ -195,8 +209,7 @@ public class IndexFrame implements ActionListener{
             new ViewBudgetFrame();
         }else if(ae.getSource() == refreshButton) {
             refreshTables();
-        }
-        else if(ae.getSource() == closeButton) {
+        }else if(ae.getSource() == closeButton) {
             System.exit(0);
         }
     }

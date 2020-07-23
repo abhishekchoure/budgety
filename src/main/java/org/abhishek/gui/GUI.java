@@ -11,7 +11,7 @@ public class GUI {
 
     class MainGUI{
         JFrame mainFrame;
-        final static String title = "BUDGETY";
+        final static String title = "Budgety";
         final static int HEIGHT = 800;
         final static int WIDTH = HEIGHT/12 * 9;
 

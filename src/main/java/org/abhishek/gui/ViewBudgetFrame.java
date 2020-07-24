@@ -196,10 +196,14 @@ public class ViewBudgetFrame implements ActionListener,ItemListener{
         if(e.getSource() == confirmDateButton) {
             if(selectedDay!=0 &&  selectedMonth!=null && selectedYear!=0) {
                 if(confirmDateButton.getText() == "Confirm Date") {
-                    disableDateSelection();
-                    confirmDateButton.setText("Change Date");
-                    createDate();
-                    showTables(newDate);
+                    if(validateDate(selectedDay,selectedMonth,selectedYear)) {
+                        disableDateSelection();
+                        confirmDateButton.setText("Change Date");
+                        createDate();
+                        showTables(newDate);
+                    }else {
+                        JOptionPane.showMessageDialog(viewBudgetFrame,"Date is invalid! Please check again","Invalid Date",JOptionPane.ERROR_MESSAGE);
+                    }
                 }else if(confirmDateButton.getText() == "Change Date") {
                     enableDateSelection();
                     confirmDateButton.setText("Confirm Date");
@@ -221,24 +225,8 @@ public class ViewBudgetFrame implements ActionListener,ItemListener{
         }
         else if(e.getSource() == month) {
             selectedMonth = (Month)month.getSelectedItem();
-            if(selectedMonth.equals(Month.FEBRUARY)){
-                validateDate(28);
-            }else if(selectedMonth.equals(Month.APRIL) || selectedMonth.equals(Month.JUNE) || selectedMonth.equals(Month.SEPTEMBER) || selectedMonth.equals(Month.NOVEMBER)){
-                validateDate(30);
-            }else{
-                validateDate(31);
-            }
-        }else if(e.getSource() == year) {
-            selectedYear = Integer.parseInt((String)year.getSelectedItem());
-            if(selectedYear%4 == 0){
-                if(selectedMonth == Month.FEBRUARY){
-                    validateDate(29);
-                }
-            }else{
-                if(selectedMonth == Month.FEBRUARY){
-                    validateDate(28);
-                }
-            }
+        }else if(e.getSource() == year){
+            selectedYear = Integer.parseInt((String) year.getSelectedItem());
         }
     }
 
@@ -276,18 +264,29 @@ public class ViewBudgetFrame implements ActionListener,ItemListener{
         updateDailyBudgetFromDatabase(newDate);
     }
 
-    private void validateDate(int noOfDays){
-        datePanel.remove(day);
-        day.setEnabled(false);
-        days = new String[noOfDays];
-        for(int i=0;i<noOfDays;i++){
-            days[i] = Integer.valueOf(i+1).toString();
+    private boolean validateDate(int selectedDay,Month selectedMonth,int selectedYear){
+        if(selectedYear % 4  == 0){
+            if(selectedMonth.equals(Month.FEBRUARY)) {
+                if (selectedDay > 29) {
+                    return false;
+                }
+            }else if(selectedMonth.equals(Month.APRIL) || selectedMonth.equals(Month.JUNE) || selectedMonth.equals(Month.SEPTEMBER) || selectedMonth.equals(Month.NOVEMBER)){
+                if(selectedDay > 30){
+                    return false;
+                }
+            }
+        }else{
+            if(selectedMonth.equals(Month.FEBRUARY)) {
+                if (selectedDay > 28) {
+                    return false;
+                }
+            }else if(selectedMonth.equals(Month.APRIL) || selectedMonth.equals(Month.JUNE) || selectedMonth.equals(Month.SEPTEMBER) || selectedMonth.equals(Month.NOVEMBER)){
+                if(selectedDay > 30){
+                    return false;
+                }
+            }
         }
-        day = new JComboBox<String>(days);
-        day.setBounds(100,30,55,28);
-        day.addItemListener(this);
-        day.setFont(small);
-        datePanel.add(day);
+        return true;
     }
 
     private void showTables(LocalDate newDate) {

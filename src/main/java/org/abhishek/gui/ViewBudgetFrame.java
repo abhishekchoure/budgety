@@ -300,6 +300,11 @@ public class ViewBudgetFrame implements ActionListener,ItemListener{
 
         updateTables(newDate);
 
+        if(dailyData == null){
+            JOptionPane.showMessageDialog(viewBudgetFrame,"No record found","Empty Record",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         Object[] newDayData = new Object[4];
         for(int i=0 ; i< dailyData.length ; i++) {
             newDayData[0]=dailyData[i][0];

@@ -381,7 +381,7 @@ public class DailyBudgetItem {
             }
 
             if(flag == 0) {
-                return new String[0][0];
+                return null;
             }
 
         }catch(Exception e) {

@@ -24,7 +24,6 @@ import org.abhishek.items.IncomeItem;
 import org.abhishek.items.MonthlyBudgetItem;
 import org.abhishek.items.YearlyBudgetItem;
 
-
 public class AddBudgetFrame implements ActionListener , ItemListener{
 
     JFrame addBudgetFrame;

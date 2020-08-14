@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Budgety:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Budgety_jar</output-path>
+    <root id="archive" name="Budgety.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="Budgety" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/postgresql/postgresql/42.2.14/postgresql-42.2.14.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

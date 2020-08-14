@@ -27,8 +27,6 @@ import org.abhishek.items.ExpenseItem;
 import org.abhishek.items.IncomeItem;
 import org.abhishek.gui.GUI.MainGUI;
 
-
-
 public class ViewBudgetFrame implements ActionListener,ItemListener{
     private JFrame viewBudgetFrame;
     private JLabel date , dayLabel ,monthLabel , yearLabel , dailyLabel , incomeLabel , expenseLabel;
@@ -45,7 +43,7 @@ public class ViewBudgetFrame implements ActionListener,ItemListener{
     private LocalDate newDate;
 
     private String[][] dailyData , incomeData , expenseData;
-    private String[] dailyCols = {"Total Income","Total Expense","Expense (%)","Savings"};
+    private String[] dailyCols = {"Total Income","Total Expense","Expense(%)","Savings"};
     private String[] incomeCols = {"Source","Amount"};
     private String[] expenseCols = {"Source","Amount","Expense(%)"};
     private JTable dailyTable , incomeTable , expenseTable;
@@ -226,7 +224,7 @@ public class ViewBudgetFrame implements ActionListener,ItemListener{
         else if(e.getSource() == month) {
             selectedMonth = (Month)month.getSelectedItem();
         }else if(e.getSource() == year){
-            selectedYear = Integer.parseInt((String) year.getSelectedItem());
+            selectedYear = Integer.parseInt((String)year.getSelectedItem());
         }
     }
 

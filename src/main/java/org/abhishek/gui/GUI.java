@@ -26,9 +26,9 @@ public class GUI {
             mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             new IndexFrame(mainFrame);
             mainFrame.setVisible(true);
-            connect = Configuration.connectToDatabase();
+            connect = null;
             if(connect == null) {
-                String msg = "\nMake sure you have Postgresql 10 or higher installed OR if you do have then please run the budgety_database.sql in your psql shell and then try again";
+                String msg = "\nMake sure you have Postgresql 10 or higher installed OR \nif you do have then please run the budgety_database.sql in your psql shell and then try again";
                 JOptionPane.showMessageDialog(mainFrame, "Couldn't connect to the database :( " + msg,"Database Connection Error",JOptionPane.ERROR_MESSAGE);
                 System.exit(1);
             }
